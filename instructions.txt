@@ -1,0 +1,107 @@
+List of item and each item is in the form of an string array [name, relevance, price] where each value relevance and price are integers as string. 
+After sorting the items by (name: 0, relevance: 1, price: 2) the programer is trying to find out a list of item displayed in a chosen page.
+
+Given a list of items, the sort colum, the sort order (0:ascending, 1:descending) the number of item to be display in each page and page number. 
+Determine the list of item names in the specified page while respecting the item order (page number start at 0)
+The first line contains an integer, n, denoting the size of the array items.
+The next line contains an integer, 3, denoting the attribute count of each item.
+Each line i of the n subsequent lines (where 0 <= i <= n) contains three space-separated strings representing items[i] in the form [name, relevance, price].
+The next line contains an integer, sortParameter, denoting the column in items to sort on.
+The next line contains an integer, sortOrder, 0 = ascending, 1 = descending.
+The next line contains an integer, itemsPerPage, denothing the number of items displayed in a page.
+The next line contains an integer, pageNumber, denothing the page where to list the items.
+
+Function description
+====================
+Complete the function fetchItemsToDisplay in the editor below.
+
+fetchItemsToDisplay has the following parameter(s):
+    string items[n][3]: a 2D array of arrays of strings the form [name, relevance, price] 
+    int sortParameter: the column of the items to sort on
+    int sortOrder: 0 = ascending and 1 = descending
+    int itemsPerPage: the number of items per page
+    int pageNumber: the page number to display item names
+
+Returns:
+    string pageItems[m]: array of item names on the requested page in the order they are displayed
+
+Example
+=======
+items = [[item1, 10, 15],[item2, 3, 4],[item3, 17, 8]]
+sortParameter = 1
+sortOrder = 0
+itemsPerPage = 2
+pageNumber = 1
+
+- There are n = 3 items
+- Sort them by (relevance: 1) in ascending order (items = [[item2, 3, 4],[item1, 10, 15],[item3, 17, 8]]).
+- Display up to 2 items in each page
+- The page 0 contains 2 item names [item2, item1] and page 1 contains only 1 item name, result = item3.
+
+Explanation 0
+=============
+The items are sorted by name, items column 0, in ascending order -> [p1, p2].
+Each page contains 1 item, so page 0 contains only the first item in the sorted list, p1.
+
+- There are n = 2 items (items = [[p1, 1, 2],[p2, 2, 1]]).
+- Sort them by (name: 0) in ascending order (items = [[p1, 1, 2],[p2, 2, 1]]).
+- Up to 1 item  can be displayed per page.
+- The page 0 contains 1 item name p1 in the sorted list [p1, p2].
+
+Constraints
+===========
+- 1 <= n < 10^5
+- 1 <= m <= n
+- 0 <= relevance, price < 10^8
+- Relevance and price are both integers
+- 1 <= itemsPerPage < 20
+- 0 <= pageNumber < 10
+
+Sample case 0
+==============
+Sample input 0
+STDIN           Function
+-----           --------
+2       ->      items[2][0] size n = 2
+3       ->      items[2][3] size of e
+p1 1 2  ->      items[2][3] = [[p1, 1
+p2 2 1
+0       ->      sortParameter = 0 (na
+0       ->      sortOrder = 0 (ascend
+1       ->      itemsPerPage = 1
+0       ->      pageNumber = 0
+
+Sample output 0
+p1
+
+Explanation 0
+The items are sorted by name, items column 0, in ascending order -> [p1, p2].
+Each page contains 1 item, so page 0 contains only the first item in the sorted list, p1.
+
+- There are n = 2 items (items = [[p1, 1, 2],[p2, 2, 1]]).
+- Sort them by (name: 0) in ascending order (items = [[p1, 1, 2],[p2, 2, 1]]).
+
+Sample case 1
+=============
+Sample input 1
+STDIN           Function
+-----           --------
+4                               ->
+3                               ->
+owjevtkuyv 58584272 62930912    ->
+rpaqgbjxik 9425650 96088250
+dfbkasyqcn 37469674 46363902
+vjrrisdfxe 18666489 88046739
+2                               ->
+1                               ->
+2                               ->
+0                               ->
+
+Sample output 1
+rpaqgbjxik
+vjrrisdfxe
+
+Explanation 1
+- There are n = 4 items (items = [[owjevtkuyv, 58584272, 62930912],[rpaqgbjxik, 9425650, 96088250],[dfbkasyqcn, 37469674, 46363902],[vjrrisdfxe, 18666489, 88046739]]).
+- Sort them by (price: 2) in descending order (items = [[rpaqgbjxik, 9425650
+
